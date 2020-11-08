@@ -181,17 +181,39 @@ const DB = {
 
 
 class Techniker extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { choices: {} };
+    }
+
     render() {
         return <div>
-            <p>hallo
+            <Evaluator choices={this.state.choices} />
+            <p>
                 {
                     Object.keys(DB.bereich).map((key) => {
-                        return <Selection label={key} options={DB.bereich[key]} />;
+                        const options = DB.bereich[key];
+                        return <Selection 
+                            label={key} 
+                            options={options} 
+                            onChange={(v) => this.setSelection(key, v)} 
+                            default={this.props.defaults[key] || Object.keys(options.fragen)[0]} />;
                     })
                 }
             </p></div>
     }
+
+    setSelection(key, value) {
+        const choices = this.state.choices;
+        choices[key] = value;
+        this.setState({ choices: choices });
+    }
+
 }
+
+const Evaluator = (props) => {
+    return <pre> { JSON.stringify(props)} </pre>;
+};
 
 class Selection extends React.Component {
     constructor(props) {
@@ -199,16 +221,22 @@ class Selection extends React.Component {
         this.state = {};
     }
 
+    componentDidMount() {
+        this.props.onChange(this.props.default);
+    }
+
     render() {
         const options = this.props.options.fragen;
 
         return <div>
+            { this.props.highlight && "highlight" }
             <p>Auswahl: {this.props.options.title}: </p>
-            <select> {
+            <select onChange={(evt) => { this.props.onChange(evt.target.value) }} defaultValue={this.props.default}> {
                 Object.keys(options).map((v) => <option key={v} value={v}>{options[v].title}</option>) 
             } </select>
         </div>;
     }
+
 }
 
 // ========================================
@@ -228,7 +256,7 @@ const log = (type) => console.log.bind(console, type);
 ReactDOM.render(
     <div>
         <h1>das ist die Überschrift</h1>
-        <Techniker />
+        <Techniker defaults={{"ort": "gr_saal", "anwesend": "uebertragung"}} />
     </div>,
     document.getElementById('root')
 );
