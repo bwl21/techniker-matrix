@@ -34,7 +34,7 @@ const DB = {
         teilnemer_praesenz: {
             title: "Wie viele Teilnehmer werden erwartet",
             fragen: {
-                gt_200: {title: "über 200"},
+                gt_200: { title: "über 200" },
                 gt_100: {
                     title: "über 100"
                 },
@@ -49,7 +49,7 @@ const DB = {
         teilnemer_uebertragung: {
             title: "Wie vile Teilnehmer sind in der Übertragung",
             fragen: {
-                gt_200: {title: "über 200"},
+                gt_200: { title: "über 200" },
                 gt_100: {
                     title: "über 100"
                 },
@@ -186,8 +186,7 @@ class Techniker extends React.Component {
             <p>hallo
                 {
                     Object.keys(DB.bereich).map((key) => {
-                        return <Selection label={key}
-                                          options={DB.bereich[key]}/>;
+                        return <Selection label={key} options={DB.bereich[key]} />;
                     })
                 }
             </p></div>
@@ -197,6 +196,7 @@ class Techniker extends React.Component {
 class Selection extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     render() {
@@ -204,7 +204,9 @@ class Selection extends React.Component {
 
         return <div>
             <p>Auswahl: {this.props.options.title}: </p>
-            <ul>{Object.keys(options).map((v) => <li>{options[v].title}</li>)}</ul>
+            <select> {
+                Object.keys(options).map((v) => <option key={v} value={v}>{options[v].title}</option>) 
+            } </select>
         </div>;
     }
 }
@@ -216,8 +218,8 @@ const schema = {
     type: "object",
     required: ["title"],
     properties: {
-        title: {type: "string", title: "Title", default: "A new task"},
-        done: {type: "boolean", title: "Done?", default: false}
+        title: { type: "string", title: "Title", default: "A new task" },
+        done: { type: "boolean", title: "Done?", default: false }
     }
 };
 
@@ -226,7 +228,7 @@ const log = (type) => console.log.bind(console, type);
 ReactDOM.render(
     <div>
         <h1>das ist die Überschrift</h1>
-        <Techniker/>
+        <Techniker />
     </div>,
     document.getElementById('root')
 );
