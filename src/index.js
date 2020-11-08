@@ -211,7 +211,14 @@ const DB = {
 class Techniker extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { choices: {} };
+        this.state = {
+            choices: {},
+            capabilities: {
+            },
+            servants: {
+                "foo": "bar"
+            }
+        };
     }
 
     render() {
