@@ -1,0 +1,101 @@
+---
+bereich:
+  ort:
+    gr_forum:
+      title: Großes Forum
+    gr_saal:
+      title: Großer Saal
+    open_air:
+      title: Freiluftveranstaltung
+  anwesend:
+    praesenz:
+      title: Präsenzveranstaltung
+    uebertragung:
+      title: Übertragung
+  teilnemer_praesenz:
+    gt_200:
+      title über 200
+    gt_100:
+      title: über 100
+    gt_0:
+      title: über 0
+    eq_0:
+      title: keine
+  teilnemer_uebertragung:
+    gt_200:
+      title über 200
+    gt_100:
+      title: über 100
+    gt_0:
+      title: über 0
+    eq_0:
+      title: keine
+  anzahl_beamer:
+    kein:
+      title: kein
+    ein:
+      title: ein Beamer
+    mehr:
+      title: mehrere Beamer
+
+  uebertragungsziel:
+    kein:
+      title: keine Übetragung
+    zoom:
+      title: übertragung nach Zoom
+    livestream:
+      title: Übertragung nach Twitch Livestream auf BG-Homepage
+    intern:
+      title: Übertragung intern (GZ, AZK)
+  uebertragungsumfang:
+    kein:
+      title: keine Übetragung
+    frontkamera:
+      title: Frontkamera mit fester Einstellung
+    frontkamera_ppt:
+      title: Frontkamera + PPT
+    multi_kamera:
+      title: mehrere Kameras + ppt
+    vorproduziert:
+      title: vorproduzierte Aufnahme
+  zoom:
+    kein:
+      title: kein Zoom
+    livestream_in_zoom:
+      title: Livestream zusätzlich in Zoom
+    nur_zoom:
+      title: Veranstaltung nur in Zoom
+    zoom_danach:
+      title: Nachveranstaltung in zoom
+  feedback:
+    kein:
+      title: keine Rückmeldungen
+    web:
+      title: Feedback über webformular
+      requiire:
+        - /bereich/uebertragungsziel/livesteram
+  licht:
+    basis:
+      title: Nur Raumlich
+    weiss:
+      title: Sendebeleuchtung weiß
+    deko:
+      title: Sendebeleuchtung dekoration
+    variabel:
+      title: variable beletuchtung (Fokus, Band, Redner)
+  remote_beitraege:
+    kein:
+      title: Programmbeiträge nur vor Ort
+    ein:
+      title: Ein Programmbeitrag remote
+    mehr:
+      title: mehrere Programmbeiträger remote
+
+
+
+
+
+
+
+
+
