@@ -13,9 +13,11 @@ const DB = {
                     title: "Großes Forum"
                 },
                 gr_saal: {
+                    id: 'gr_forum',
                     title: "Großer Saal"
                 },
                 open_air: {
+                    id: 'open_air',
                     title: "Freiluftveranstaltung"
                 }
             }
@@ -24,9 +26,11 @@ const DB = {
             title: "fragen zu Art der Veranstaltung",
             fragen: {
                 praesenz: {
+                    id:'praesenz',
                     title: "Präsenzveranstaltung"
                 },
                 uebertragung: {
+                    id:'uebertragung',
                     title: "Übertragung"
                 }
             }
@@ -34,14 +38,19 @@ const DB = {
         teilnemer_praesenz: {
             title: "Wie viele Teilnehmer werden erwartet",
             fragen: {
-                gt_200: { title: "über 200" },
+                gt_200: { 
+                    id:'gt_200',
+                    title: "über 200" },
                 gt_100: {
+                    id:'gt_100',
                     title: "über 100"
                 },
                 gt_0: {
+                    id:'gt_0',
                     title: "über 0"
                 },
                 eq_0: {
+                    id:'eq_0',
                     title: "keine"
                 }
             }
