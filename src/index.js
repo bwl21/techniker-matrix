@@ -7,56 +7,66 @@ const DB = {
     bereich: {
         ort: {
             title: "fragen zu Ort der Veranstaltung",
+            id: 'ort',
             fragen: {
                 gr_forum: {
                     id: 'gr_forum',
-                    title: "Großes Forum"
+                    title: "Großes Forum",
+                    skill: ["technik-grosses-forum-einschalten"],
                 },
                 gr_saal: {
                     id: 'gr_forum',
-                    title: "Großer Saal"
+                    title: "Großer Saal",
+                    skill: ["technik-grosser-saal-einschalten"],
                 },
                 open_air: {
                     id: 'open_air',
-                    title: "Freiluftveranstaltung"
+                    title: "Freiluftveranstaltung",
+                    skill: ["technik-open-air-aufbauen"]
                 }
             }
         },
         anwesend: {
             title: "fragen zu Art der Veranstaltung",
+            id: 'anwesend',
             fragen: {
                 praesenz: {
-                    id:'praesenz',
-                    title: "Präsenzveranstaltung"
+                    id: 'praesenz',
+                    title: "Präsenzveranstaltung",
+                    skill: ["technik-einschalten"]
                 },
                 uebertragung: {
-                    id:'uebertragung',
-                    title: "Übertragung"
+                    id: 'uebertragung',
+                    title: "Übertragung",
+                    skill: ["uebertragung-einschalten", "livestream-einbetten"]
                 }
             }
         },
         teilnemer_praesenz: {
             title: "Wie viele Teilnehmer werden erwartet",
+            id: 'telnehmer_prasesenz',
             fragen: {
-                gt_200: { 
-                    id:'gt_200',
-                    title: "über 200" },
+                gt_200: {
+                    id: 'gt_200',
+                    title: "über 200"
+                },
                 gt_100: {
-                    id:'gt_100',
-                    title: "über 100"
+                    id: 'gt_100',
+                    title: "über 100",
                 },
                 gt_0: {
-                    id:'gt_0',
-                    title: "über 0"
+                    id: 'gt_0',
+                    title: "über 0",
                 },
                 eq_0: {
-                    id:'eq_0',
-                    title: "keine"
+                    id: 'eq_0',
+                    title: "keine",
                 }
             }
         },
         teilnemer_uebertragung: {
             title: "Wie vile Teilnehmer sind in der Übertragung",
+            id: 'teilnehmer_uebertragung',
             fragen: {
                 gt_200: { id: 'gt_200', title: "über 200" },
                 gt_100: {
@@ -75,24 +85,31 @@ const DB = {
         },
         anzahl_beamer: {
             title: "Wie viele Beamer sollen bespielt werden",
+            id: 'anzahl_beamer',
             fragen: {
 
                 kein: {
                     id: 'kein',
-                    title: "kein"
+                    title: "kein",
+
                 },
                 ein: {
                     id: 'ein',
-                    title: "ein Beamer"
+                    title: "ein Beamer",
+                    skill: ["beamer-einschalten"]
+
                 },
                 mehr: {
                     id: 'mehr',
-                    title: "mehrere Beamer"
+                    title: "mehrere Beamer",
+                    skill: ["beamer-esnschalten", "uebertragung-einschalten"]
+
                 }
             }
         },
         uebertragungsziel: {
             title: "Wohin soll übertragen werden",
+            id: 'uebertragungsziel',
             fragen: {
                 kein: {
                     id: 'kein',
@@ -100,20 +117,24 @@ const DB = {
                 },
                 zoom: {
                     id: "zoom",
-                    title: "übertragung nach Zoom"
+                    title: "übertragung nach Zoom",
+                    skill: ["uebertragung-zoom-einschalten"]
                 },
                 livestream: {
                     id: "livesteam",
-                    title: "Übertragung nach Twitch Livestream auf BG-Homepage"
+                    title: "Übertragung nach Twitch Livestream auf BG-Homepage",
+                    skill: ["uebetragung-livestream-einschalten"]
                 },
                 intern: {
                     id: "intern",
-                    title: "Übertragung intern (GZ, AZK)"
+                    title: "Übertragung intern (GZ, AZK)",
+                    skill: ["uebertragung-intern-einschalten"]
                 }
             }
         },
         uebertragungsumfang: {
             title: "in welchem Umfang soll übertragen werden",
+            id: 'uebertragungsumfang',
             fragen: {
                 kein: {
                     id: "kein",
@@ -121,24 +142,29 @@ const DB = {
                 },
                 frontkamera: {
                     id: "frontkamera",
-                    title: "Frontkamera mit fester Einstellung"
+                    title: "Frontkamera mit fester Einstellung",
+                    skill: ["frontkamera-einschalten"]
                 },
                 frontkamera_ppt: {
                     id: "frontkamera_ppt",
-                    title: "Frontkamera + PPT"
+                    title: "Frontkamera + PPT",
+                    skill: ["frontkamera-einschalten", "songeamer-bedienen"]
                 },
                 multi_kamera: {
                     id: "multi_kamera",
-                    title: "mehrere Kameras + ppt"
+                    title: "mehrere Kameras + ppt",
+                    skill: ["frontkamera-einschalten", "vmix-bedienen", "propresenter-bedienen"]
                 },
                 vorproduziert: {
                     id: "vorproduziert",
-                    title: "vorproduzierte Aufnahme"
+                    title: "vorproduzierte Aufnahme",
+                    skill: ["songbeamer-bedienen"]
                 }
             }
         },
         zoom: {
             title: "fragen zu Ort der Veranstaltung",
+            id: "zoom",
             fragen: {
                 kein: {
                     id: "kein",
@@ -146,20 +172,24 @@ const DB = {
                 },
                 livestream_in_zoom: {
                     id: "livestream_in_zoom",
-                    title: "Livestream zusätzlich in Zoom"
+                    title: "Livestream zusätzlich in Zoom",
+                    skill: ["uebertragung-zoom-einschalten", "livestream-einschalten", "zoomraum-einrichten"]
                 },
                 nur_zoom: {
                     id: "nur_zoom",
-                    title: "Veranstaltung nur in Zoom"
+                    title: "Veranstaltung nur in Zoom",
+                    skill: ["uebertragung-zoom-einschalten", "zoomraum-einschalten"]
                 },
                 zoom_danach: {
                     id: "zoom_danach",
-                    title: "Nachveranstaltung in zoom"
+                    title: "Nachveranstaltung in zoom",
+                    skill: ["zoomraum-einscahlten"]
                 }
             }
         },
         feedback: {
             title: "Wie sollen Rückmeldungen verarbeitet werden",
+            id: 'feedback',
             fragen: {
                 kein: {
                     id: "kein",
@@ -168,36 +198,42 @@ const DB = {
                 web: {
                     id: "web",
                     title: "Feedback über webformular",
-                    requiire: [
-                        "/bereich/uebertragungsziel/livesteram"
+                    skill: [
+                        "gebetsanliegen-aufnehmen"
                     ]
                 }
             }
         },
         licht: {
             title: "Welche Anforderung haben wir hinscht Licht",
+            id: 'licht',
             fragen: {
                 basis: {
                     id: "basis",
-                    title: "Nur Raumlicht"
+                    title: "Nur Raumlicht",
+                    skill: ["raumlicht-einschalten"]
+
                 },
                 weiss: {
                     id: "weiss",
                     title: "Sendebeleuchtung weiß",
-                    descr: null
+                    skill: ["raumlicht-einschalten"]
                 },
                 deko: {
                     id: "deko",
-                    title: "Sendebeleuchtung dekoration"
+                    title: "Sendebeleuchtung dekoration",
+                    skill: ["raumlicht-einschalten", "sendebeleuchtung-einschalten"]
                 },
                 variabel: {
                     id: "variabel",
-                    title: "variable beletuchtung (Fokus, Band, Redner)"
+                    title: "variable beletuchtung (Fokus, Band, Redner)",
+                    skill: ["raumlicht einschalten", "sendebeleuchtung-einschalten", "sendebeleuchtung-steuern"]
                 }
             }
         },
         remote_beitraege: {
             title: "Welche Programmbeiträge kommen",
+            id: 'remote_beitraege',
             fragen: {
                 kein: {
                     id: "kein",
@@ -205,11 +241,13 @@ const DB = {
                 },
                 ein: {
                     id: "ein",
-                    title: "Ein Programmbeitrag remote"
+                    title: "Ein Programmbeitrag remote",
+                    skill: ["zoom-in-üertragung-einsteuern"]
                 },
                 mehr: {
                     id: "mehr",
-                    title: "mehrere Programmbeiträger remote"
+                    title: "mehrere Programmbeiträger remote",
+                    skill: ["zoom-in-üertragung-einsteuern"]
                 }
             }
         }
@@ -222,8 +260,7 @@ class Techniker extends React.Component {
         super(props);
         this.state = {
             choices: {},
-            capabilities: {
-            },
+            capabilities: new Set(),
             servants: {
                 "foo": "bar"
             }
@@ -243,13 +280,14 @@ class Techniker extends React.Component {
                                         label={key}
                                         options={options}
                                         onChange={(v) => this.setSelection(key, v)}
-                                        default={this.props.defaults[key] || Object.keys(options.fragen)[0]} />;
+                                        default={this.props.defaults[key] || 
+                                            [options.id, Object.keys(options.fragen)[0]].join( ".")} />;
                                 })
                             }
                         </p>
                     </td>
                     <td>
-                        <Evaluator choices={this.state.choices} />
+                        <Evaluator result={{choices:this.state.choices}} />
                     </td>
                 </tr>
             </table>
@@ -258,14 +296,30 @@ class Techniker extends React.Component {
 
     setSelection(key, value) {
         const choices = this.state.choices;
+        const the_value = value;
         choices[key] = value;
-        this.setState({ choices: choices });
+        this.setState({ choices: choices});
     }
 
 }
 
+    function capabilities(choices){
+        // alert(JSON.stringify(choices.keys));
+        // debugger;
+      var result = (Object.keys(choices)).map( (key) => {
+        //   return key;
+          return (DB.bereich[key].fragen[choices[key].split(".")[1]] || {skill: "not found"}).skill;
+      })
+      return (result);
+    };
+
 const Evaluator = (props) => {
-    return <pre> {JSON.stringify(props, null, 2)} </pre>;
+    const choices = props.result.choices;
+    const result = {
+        choices: choices,
+        capabailities: capabilities(choices),
+    };
+    return <pre> {JSON.stringify(result, null, 2)} </pre>;
 };
 
 class Selection extends React.Component {
@@ -280,12 +334,13 @@ class Selection extends React.Component {
 
     render() {
         const options = this.props.options.fragen;
+        const parentkey = this.props.options.id;
 
         return <div>
             {this.props.highlight && "highlight"}
             <p>Auswahl: {this.props.options.title}: </p>
             <select onChange={(evt) => { this.props.onChange(evt.target.value) }} defaultValue={this.props.default}> {
-                Object.keys(options).map((v) => <option key={v} value={v}>{options[v].title}</option>)
+                Object.keys(options).map((v) => { var val = parentkey + "." + v; return <option key={val} value={val}>{options[v].title}</option>; })
             } </select>
         </div>;
     }
@@ -309,7 +364,7 @@ const log = (type) => console.log.bind(console, type);
 ReactDOM.render(
     <div>
         <h1>das ist die Überschriftss</h1>
-        <Techniker defaults={{ "ort": "gr_saal", "anwesend": "uebertragung" }} />
+        <Techniker defaults={{ }} />
     </div>,
     document.getElementById('root')
 );
