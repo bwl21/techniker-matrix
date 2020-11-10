@@ -12,12 +12,12 @@ const DB = {
                 gr_forum: {
                     id: 'gr_forum',
                     title: "Großes Forum",
-                    skill: ["technik-grosses-forum-einschalten"],
+                    skill: ["technik-einschalten", "raumlicht-einschalten"],
                 },
                 gr_saal: {
                     id: 'gr_forum',
                     title: "Großer Saal",
-                    skill: ["technik-grosser-saal-einschalten"],
+                    skill: ["technik-einschalten", "raumlicht-einschalten"],
                 },
                 open_air: {
                     id: 'open_air',
@@ -26,37 +26,14 @@ const DB = {
                 }
             }
         },
-        anwesend: {
-            title: "fragen zu Art der Veranstaltung",
-            id: 'anwesend',
-            fragen: {
-                praesenz: {
-                    id: 'praesenz',
-                    title: "Präsenzveranstaltung",
-                    skill: ["technik-einschalten"]
-                },
-                uebertragung: {
-                    id: 'uebertragung',
-                    title: "Übertragung",
-                    skill: ["uebertragung-einschalten", "livestream-einbetten"]
-                }
-            }
-        },
         teilnemer_praesenz: {
             title: "Wie viele Teilnehmer werden erwartet",
             id: 'telnehmer_prasesenz',
             fragen: {
-                gt_200: {
-                    id: 'gt_200',
-                    title: "über 200"
-                },
-                gt_100: {
-                    id: 'gt_100',
-                    title: "über 100",
-                },
                 gt_0: {
                     id: 'gt_0',
                     title: "über 0",
+                    skill: ["technik-einschalten", "raumlicht-einschalten"],
                 },
                 eq_0: {
                     id: 'eq_0',
@@ -68,7 +45,9 @@ const DB = {
             title: "Wie vile Teilnehmer sind in der Übertragung",
             id: 'teilnehmer_uebertragung',
             fragen: {
-                gt_200: { id: 'gt_200', title: "über 200" },
+                gt_200: { id: 'gt_200', title: "über 200",
+                                skill: ["technik-einschalten", "raumlicht-einschalten"],
+                },
                 gt_100: {
                     id: 'gt_100',
                     title: "über 100"
@@ -96,14 +75,12 @@ const DB = {
                 ein: {
                     id: 'ein',
                     title: "ein Beamer",
-                    skill: ["beamer-einschalten"]
-
+                    skill: ["beamer-einschalten"],
                 },
                 mehr: {
                     id: 'mehr',
                     title: "mehrere Beamer",
                     skill: ["beamer-esnschalten", "uebertragung-einschalten"]
-
                 }
             }
         },
@@ -113,22 +90,22 @@ const DB = {
             fragen: {
                 kein: {
                     id: 'kein',
-                    title: "keine Übetragung"
+                    title: "keine Übertragung"
                 },
                 zoom: {
                     id: "zoom",
-                    title: "übertragung nach Zoom",
-                    skill: ["uebertragung-zoom-einschalten"]
+                    title: "Übertragung nach Zoom",
+                    skill: ["uebertragung-zoom-einschalten"],
                 },
                 livestream: {
                     id: "livesteam",
                     title: "Übertragung nach Twitch Livestream auf BG-Homepage",
-                    skill: ["uebetragung-livestream-einschalten"]
+                    skill: ["uebetragung-livestream-einschalten"],
                 },
                 intern: {
                     id: "intern",
                     title: "Übertragung intern (GZ, AZK)",
-                    skill: ["uebertragung-intern-einschalten"]
+                    skill: ["uebertragung-intern-einschalten"],
                 }
             }
         },
@@ -143,22 +120,26 @@ const DB = {
                 frontkamera: {
                     id: "frontkamera",
                     title: "Frontkamera mit fester Einstellung",
-                    skill: ["frontkamera-einschalten"]
+                    skill: ["frontkamera-einschalten"],
+
                 },
                 frontkamera_ppt: {
                     id: "frontkamera_ppt",
                     title: "Frontkamera + PPT",
-                    skill: ["frontkamera-einschalten", "songeamer-bedienen"]
+                    skill: ["frontkamera-einschalten", "songbeamer-bedienen"],
+
                 },
                 multi_kamera: {
                     id: "multi_kamera",
                     title: "mehrere Kameras + ppt",
-                    skill: ["frontkamera-einschalten", "vmix-bedienen", "propresenter-bedienen"]
+                    skill: ["frontkamera-einschalten", "vmix-bedienen", "propresenter-bedienen"],
+
                 },
                 vorproduziert: {
                     id: "vorproduziert",
                     title: "vorproduzierte Aufnahme",
-                    skill: ["songbeamer-bedienen"]
+                    skill: ["songbeamer-bedienen"],
+
                 }
             }
         },
@@ -198,14 +179,12 @@ const DB = {
                 web: {
                     id: "web",
                     title: "Feedback über webformular",
-                    skill: [
-                        "gebetsanliegen-aufnehmen"
-                    ]
+                    skill: ["gebetsanliegen-aufnehmen"]
                 }
             }
         },
         licht: {
-            title: "Welche Anforderung haben wir hinscht Licht",
+            title: "Welche Anforderung haben wir hinsichtlicht Licht",
             id: 'licht',
             fragen: {
                 basis: {
@@ -251,7 +230,213 @@ const DB = {
                 }
             }
         }
-    }
+    },
+    techniker: [
+        {
+            id: "Basistechniker 1",
+            skill: [
+                "beamer-einschalten",           //
+                // "frontkamera-einschalten",
+                // "gebetsanliegen-aufnehmen",
+                // "livestream-einbetten",
+                // "livestream-einschalten",
+                // "propresenter-bedienen",
+                 "raumlicht einschalten",        //
+                // "sendebeleuchtung-einschalten", 
+                // "sendebeleuchtung-steuern",
+                "songbeamer-bedienen",          //
+                "technik-einschalten",          //
+              //  "technik-grosser-saal-einschalten",  //
+              //  "technik-grosses-forum-einschalten",
+                "technik-open-air-aufbauen",    //. open air techner
+                // "uebertragung-einschalten",     
+                // "uebertragung-intern-einschalten",
+                // "uebertragung-zoom-einschalten",  
+                // "uebetragung-livestream-einschalten",
+                // "vmix-bedienen",
+                // "zoom-in-üertragung-einsteuern",
+                // "zoomraum-einrichten",
+                // "zoomraum-einscahlten",
+
+                // "ton-grund-einstellen",
+
+            ]
+        },
+        {
+            id: "Basistechniker 2",
+            skill: [
+                "beamer-einschalten",   //
+                "frontkamera-einschalten",  //
+                // "gebetsanliegen-aufnehmen",
+                // "livestream-einbetten",
+                "livestream-einschalten",  //. ---- duplikate
+                // "propresenter-bedienen",
+                "raumlicht einschalten", //
+                "sendebeleuchtung-einschalten",  //
+                // "sendebeleuchtung-steuern",
+                "songbeamer-bedienen",  //
+                "technik-einschalten",   //
+                // "technik-grosser-saal-einschalten",
+                // "technik-grosses-forum-einschalten",
+                // "technik-open-air-aufbauen",
+                 "uebertragung-einschalten",  //
+                "uebertragung-intern-einschalten",  //
+                // "uebertragung-zoom-einschalten",
+                "uebetragung-livestream-einschalten",  //
+                // "vmix-bedienen",
+                // "zoom-in-üertragung-einsteuern",
+                // "zoomraum-einrichten",
+                // "zoomraum-einscahlten",
+
+                // "ton-grund-einstellen"
+            ]
+        },
+        {
+            id: "Tontechnker",
+            skill: [
+                // "beamer-einschalten",
+                // "frontkamera-einschalten",
+                // "gebetsanliegen-aufnehmen",
+                // "livestream-einbetten",
+                // "livestream-einschalten",
+                // "propresenter-bedienen",
+                // "raumlicht einschalten",
+                // "sendebeleuchtung-einschalten",
+                // "sendebeleuchtung-steuern",
+                // "songbeamer-bedienen",
+                "technik-einschalten",  //
+                // "technik-grosser-saal-einschalten",
+                // "technik-grosses-forum-einschalten",
+                // "technik-open-air-aufbauen",
+                // "uebertragung-einschalten",
+                // "uebertragung-intern-einschalten",
+                // "uebertragung-zoom-einschalten",
+                // "uebetragung-livestream-einschalten",
+                // "vmix-bedienen",
+                // "zoom-in-üertragung-einsteuern",
+                // "zoomraum-einrichten",
+                // "zoomraum-einscahlten",
+
+                "ton-abmischen", //
+                "tontechnik-aufbauen" //
+
+            ]
+        }, 
+        {
+            id: "kameratechniker",
+            skill: [
+                "beamer-einschalten", //
+                // "frontkamera-einschalten",
+                // "gebetsanliegen-aufnehmen",
+                // "livestream-einbetten",
+                // "livestream-einschalten",
+                // "propresenter-bedienen",
+                "raumlicht einschalten",   //
+                "sendebeleuchtung-einschalten",  //
+                "sendebeleuchtung-steuern",    //
+                // "songbeamer-bedienen",
+                "technik-einschalten",  //
+                // "technik-grosser-saal-einschalten",
+                // "technik-grosses-forum-einschalten",
+                // "technik-open-air-aufbauen",
+                // "uebertragung-einschalten", //
+                "uebertragung-intern-einschalten", //
+                "uebertragung-zoom-einschalten",   //
+                "uebertragung-livestream-einschalten",  //
+                "vmix-bedienen",  //
+                "zoom-in-üertragung-einsteuern",  //
+                // "zoomraum-einrichten",
+                // "zoomraum-einschalten",
+            ]
+        },
+        {
+            id: "Präsentationstechniker",
+            skill: [
+                "beamer-einschalten", //
+                // "frontkamera-einschalten",
+                // "gebetsanliegen-aufnehmen",
+                // "livestream-einbetten",
+                // "livestream-einschalten",
+                "propresenter-bedienen", //
+                // "raumlicht einschalten",
+                // "sendebeleuchtung-einschalten",  
+                // "sendebeleuchtung-steuern",
+                "songbeamer-bedienen", //
+                "technik-einschalten",  //
+                // "technik-grosser-saal-einschalten",
+                // "technik-grosses-forum-einschalten",
+                // "technik-open-air-aufbauen",
+                // "uebertragung-einschalten",
+                // "uebertragung-intern-einschalten",
+                // "uebertragung-zoom-einschalten",
+                // "uebetragung-livestream-einschalten",
+                // "vmix-bedienen",
+                // "zoom-in-üertragung-einsteuern",
+                // "zoomraum-einrichten",
+                // "zoomraum-einscahlten",
+            ]
+        },
+        {
+            id: "zoommoderator",
+            skill: [
+                // "beamer-einschalten",
+                // "frontkamera-einschalten",
+                // "gebetsanliegen-aufnehmen",
+                // "livestream-einbetten",
+                // "livestream-einschalten",
+                // "propresenter-bedienen",
+                // "raumlicht einschalten",
+                // "sendebeleuchtung-einschalten",
+                // "sendebeleuchtung-steuern",
+                // "songbeamer-bedienen",
+                // "technik-einschalten",
+                // "technik-grosser-saal-einschalten",
+                // "technik-grosses-forum-einschalten",
+                // "technik-open-air-aufbauen",
+                // "uebertragung-einschalten",
+                // "uebertragung-intern-einschalten",
+                // "uebertragung-zoom-einschalten",
+                // "uebetragung-livestream-einschalten",
+                // "vmix-bedienen",
+                // "zoom-in-üertragung-einsteuern",
+                "zoomraum-einrichten", //
+                "zoomraum-einscahlten", //
+            ]
+        },
+        {
+            id: "webredakteur",
+            skill: [
+                // "beamer-einschalten",
+                // "frontkamera-einschalten",
+                // "gebetsanliegen-aufnehmen",
+                "livestream-einbetten",  //
+                // "livestream-einschalten",
+                // "propresenter-bedienen",
+                // "raumlicht einschalten",
+                // "sendebeleuchtung-einschalten",
+                // "sendebeleuchtung-steuern",
+                // "songbeamer-bedienen",
+                // "technik-einschalten",
+                // "technik-grosser-saal-einschalten",
+                // "technik-grosses-forum-einschalten",
+                // "technik-open-air-aufbauen",
+                // "uebertragung-einschalten",
+                // "uebertragung-intern-einschalten",
+                // "uebertragung-zoom-einschalten",
+                // "uebetragung-livestream-einschalten",
+                // "vmix-bedienen",
+                // "zoom-in-üertragung-einsteuern",
+                // "zoomraum-einrichten",
+                // "zoomraum-einschalten",
+            ]
+        },
+        {
+            id: "twitchmoderator",
+            skill: [
+
+            ]
+        }
+    ]
 }
 
 
@@ -280,14 +465,14 @@ class Techniker extends React.Component {
                                         label={key}
                                         options={options}
                                         onChange={(v) => this.setSelection(key, v)}
-                                        default={this.props.defaults[key] || 
-                                            [options.id, Object.keys(options.fragen)[0]].join( ".")} />;
+                                        default={this.props.defaults[key] ||
+                                            [options.id, Object.keys(options.fragen)[0]].join(".")} />;
                                 })
                             }
                         </p>
                     </td>
                     <td>
-                        <Evaluator result={{choices:this.state.choices}} />
+                        <Evaluator result={{ choices: this.state.choices }} />
                     </td>
                 </tr>
             </table>
@@ -298,26 +483,48 @@ class Techniker extends React.Component {
         const choices = this.state.choices;
         const the_value = value;
         choices[key] = value;
-        this.setState({ choices: choices});
+        this.setState({ choices: choices });
     }
 
 }
 
-    function capabilities(choices){
-        // alert(JSON.stringify(choices.keys));
-        // debugger;
-      var result = (Object.keys(choices)).map( (key) => {
-        //   return key;
-          return (DB.bereich[key].fragen[choices[key].split(".")[1]] || {skill: "not found"}).skill;
-      })
-      return (result);
-    };
+
 
 const Evaluator = (props) => {
+
+    function capabilities(choices) {
+        // alert(JSON.stringify(choices.keys));
+        // debugger;
+        var result = (Object.keys(choices)).map((key) => {
+            //   return key;
+            return (DB.bereich[key].fragen[choices[key].split(".")[1]] || { skill: "not found" }).skill;
+        })
+
+
+        return ([...new Set(result.flat(10))].filter((obj) => obj).sort());
+    };
+
+    function technicians(skills) {
+        // techniker mit größter Schnittmenge suchen
+
+        function hasrequiredskill(tskills){
+            return tskills.filter(tskill => skills.includes(tskill))
+        };
+
+        const possibletechnicans = DB.techniker.filter(tskills => hasrequiredskill(tskills.skill).length > 0);
+
+        // restmenge errechnen
+        // rekursion
+        return possibletechnicans;
+    }
+
     const choices = props.result.choices;
+    const thecapabilities = capabilities(choices);
+    const thetechnitians =  technicians(thecapabilities);
     const result = {
         choices: choices,
-        capabailities: capabilities(choices),
+        capabilities: thecapabilities,
+        technicians: thetechnitians
     };
     return <pre> {JSON.stringify(result, null, 2)} </pre>;
 };
@@ -364,7 +571,7 @@ const log = (type) => console.log.bind(console, type);
 ReactDOM.render(
     <div>
         <h1>das ist die Überschriftss</h1>
-        <Techniker defaults={{ }} />
+        <Techniker defaults={{}} />
     </div>,
     document.getElementById('root')
 );
