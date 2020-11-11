@@ -45,8 +45,9 @@ const DB = {
             title: "Wie vile Teilnehmer sind in der Übertragung",
             id: 'teilnehmer_uebertragung',
             fragen: {
-                gt_200: { id: 'gt_200', title: "über 200",
-                                skill: ["technik-einschalten", "raumlicht-einschalten"],
+                gt_200: {
+                    id: 'gt_200', title: "über 200",
+                    skill: ["technik-einschalten", "raumlicht-einschalten"],
                 },
                 gt_100: {
                     id: 'gt_100',
@@ -80,7 +81,7 @@ const DB = {
                 mehr: {
                     id: 'mehr',
                     title: "mehrere Beamer",
-                    skill: ["beamer-esnschalten", "uebertragung-einschalten"]
+                    skill: ["beamer-einschalten", "uebertragung-einschalten"]
                 }
             }
         },
@@ -183,8 +184,25 @@ const DB = {
                 }
             }
         },
+        ton: {
+            title: "welche Ton-Anforderungen",
+            id: "ton",
+            fragen: {
+                basis: {
+                    title: ("Grundanforderung (max vier mikrofone)"),
+                    id: "basis",
+                    skill: ["ton-grund-einstellen"]
+                },
+                komplex: {
+                    title: ("Komplexes Setup mit band etc."),
+                    id: "komplex",
+                    skill: ["ton-abmischen",
+                        "tontechnik-aufbauen"]
+                }
+            }
+        },
         licht: {
-            title: "Welche Anforderung haben wir hinsichtlicht Licht",
+            title: "Welche Licht-Anforderungen",
             id: 'licht',
             fragen: {
                 basis: {
@@ -206,7 +224,7 @@ const DB = {
                 variabel: {
                     id: "variabel",
                     title: "variable beletuchtung (Fokus, Band, Redner)",
-                    skill: ["raumlicht einschalten", "sendebeleuchtung-einschalten", "sendebeleuchtung-steuern"]
+                    skill: ["raumlicht-einschalten", "sendebeleuchtung-einschalten", "sendebeleuchtung-steuern"]
                 }
             }
         },
@@ -241,14 +259,14 @@ const DB = {
                 // "livestream-einbetten",
                 // "livestream-einschalten",
                 // "propresenter-bedienen",
-                 "raumlicht einschalten",        //
+                "raumlicht-einschalten",        //
                 // "sendebeleuchtung-einschalten", 
                 // "sendebeleuchtung-steuern",
                 "songbeamer-bedienen",          //
                 "technik-einschalten",          //
-              //  "technik-grosser-saal-einschalten",  //
-              //  "technik-grosses-forum-einschalten",
-                "technik-open-air-aufbauen",    //. open air techner
+                //  "technik-grosser-saal-einschalten",  //
+                //  "technik-grosses-forum-einschalten",
+                //  "technik-open-air-aufbauen",    //. open air techner
                 // "uebertragung-einschalten",     
                 // "uebertragung-intern-einschalten",
                 // "uebertragung-zoom-einschalten",  
@@ -258,7 +276,7 @@ const DB = {
                 // "zoomraum-einrichten",
                 // "zoomraum-einscahlten",
 
-                // "ton-grund-einstellen",
+                "ton-grund-einstellen",
 
             ]
         },
@@ -271,7 +289,7 @@ const DB = {
                 // "livestream-einbetten",
                 "livestream-einschalten",  //. ---- duplikate
                 // "propresenter-bedienen",
-                "raumlicht einschalten", //
+                "raumlicht-einschalten", //
                 "sendebeleuchtung-einschalten",  //
                 // "sendebeleuchtung-steuern",
                 "songbeamer-bedienen",  //
@@ -279,7 +297,7 @@ const DB = {
                 // "technik-grosser-saal-einschalten",
                 // "technik-grosses-forum-einschalten",
                 // "technik-open-air-aufbauen",
-                 "uebertragung-einschalten",  //
+                "uebertragung-einschalten",  //
                 "uebertragung-intern-einschalten",  //
                 // "uebertragung-zoom-einschalten",
                 "uebetragung-livestream-einschalten",  //
@@ -288,7 +306,7 @@ const DB = {
                 // "zoomraum-einrichten",
                 // "zoomraum-einscahlten",
 
-                // "ton-grund-einstellen"
+                "ton-grund-einstellen"
             ]
         },
         {
@@ -300,7 +318,7 @@ const DB = {
                 // "livestream-einbetten",
                 // "livestream-einschalten",
                 // "propresenter-bedienen",
-                // "raumlicht einschalten",
+                "raumlicht-einschalten",
                 // "sendebeleuchtung-einschalten",
                 // "sendebeleuchtung-steuern",
                 // "songbeamer-bedienen",
@@ -317,11 +335,12 @@ const DB = {
                 // "zoomraum-einrichten",
                 // "zoomraum-einscahlten",
 
+                "ton-grund-einstellen",
                 "ton-abmischen", //
                 "tontechnik-aufbauen" //
 
             ]
-        }, 
+        },
         {
             id: "kameratechniker",
             skill: [
@@ -454,9 +473,9 @@ class Techniker extends React.Component {
 
     render() {
         return <div>
-            <table border="1">
-                <tr>
-                    <td>
+            <table border="1" vlign="top">
+                <tr valign="too">
+                    <td valign="top">
                         <p>
                             {
                                 Object.keys(DB.bereich).map((key) => {
@@ -471,7 +490,7 @@ class Techniker extends React.Component {
                             }
                         </p>
                     </td>
-                    <td>
+                    <td valign="top">
                         <Evaluator result={{ choices: this.state.choices }} />
                     </td>
                 </tr>
@@ -504,29 +523,71 @@ const Evaluator = (props) => {
         return ([...new Set(result.flat(10))].filter((obj) => obj).sort());
     };
 
-    function technicians(skills) {
+    function technicians(requiredskills) {
         // techniker mit größter Schnittmenge suchen
 
-        function hasrequiredskill(tskills){
-            return tskills.filter(tskill => skills.includes(tskill))
+        function matchskills(technician) {
+            return {
+                techn: technician,
+                match: technician.skill.filter((tskill) => requiredskills.includes(tskill)),
+                missing: requiredskills.filter(rskill => !technician.skill.includes(rskill)),
+                nmatch: technician.skill.filter((tskill) => !requiredskills.includes(tskill)),
+            }
         };
 
-        const possibletechnicans = DB.techniker.filter(tskills => hasrequiredskill(tskills.skill).length > 0);
+        var result = [];
+        var pt = DB.techniker.map(techn => matchskills(techn));
+        pt = pt.sort((a, b) => b.match.length - a.match.length)[0];
 
-        // restmenge errechnen
-        // rekursion
-        return possibletechnicans;
+        if ((pt.match.length > 0) && (pt.missing.length > 0)) {
+            pt.foo = "more";
+            var pt1 = technicians(pt.missing);
+            debugger;
+            result = result.concat([pt]);
+            result = result.concat(pt1)
+        }
+        else if ((pt.match.length > 0) && (pt.missing.length === 0)) {
+            pt.foo = "ok";
+            result.push(pt);
+        }
+        else if ((pt.match.length === 0) && (pt.missing.length > 0)) {
+            result.push({ foo: "fail",  match:pt.missing, techn: {id: "offen"}, missing: pt.missing })
+        }
+        else if ((pt.match.length === 0) || (pt.missing.length === 0)) {
+            // this should never haüü
+        }
+
+        return result;
     }
 
     const choices = props.result.choices;
     const thecapabilities = capabilities(choices);
-    const thetechnitians =  technicians(thecapabilities);
+    const thetechnicians = technicians(thecapabilities);
     const result = {
         choices: choices,
         capabilities: thecapabilities,
-        technicians: thetechnitians
+        technicians: thetechnicians
     };
-    return <pre> {JSON.stringify(result, null, 2)} </pre>;
+
+    const nicer =
+        <table border="1">
+            {result.technicians.map(technician =>
+                <tr>
+                    <td>
+                        {technician.techn.id}
+                    </td>
+                    <td>
+                        {technician.match.join(", ")}
+                    </td>
+                </tr>
+            )
+            }
+        </table>;
+
+    const raw = "" //<pre>{JSON.stringify(result, null, 2)}</pre> ;  
+    return <div>
+        {[nicer,raw]}
+    </div>;
 };
 
 class Selection extends React.Component {
@@ -545,7 +606,7 @@ class Selection extends React.Component {
 
         return <div>
             {this.props.highlight && "highlight"}
-            <p>Auswahl: {this.props.options.title}: </p>
+            <p>{this.props.options.title}: </p>
             <select onChange={(evt) => { this.props.onChange(evt.target.value) }} defaultValue={this.props.default}> {
                 Object.keys(options).map((v) => { var val = parentkey + "." + v; return <option key={val} value={val}>{options[v].title}</option>; })
             } </select>
