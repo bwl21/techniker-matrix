@@ -398,6 +398,12 @@ const DB = {
 
             ]
         }
+    ],
+    exlusion:[ // auswahlpaare, die sie gegenseitig ausschlielsen
+        [[], []]
+    ],
+    inklusion:[ // auswahlpaare, die gleichzeitig da sein müssen
+        [[],[]]
     ]
 }
 
@@ -408,9 +414,6 @@ class Techniker extends React.Component {
         this.state = {
             choices: {},
             capabilities: new Set(),
-            servants: {
-                "foo": "bar"
-            }
         };
     }
 
@@ -463,7 +466,6 @@ const Evaluator = (props) => {
             //   return key;
             return (DB.bereich[key].fragen[choices[key].split(".")[1]] || { skill: "not found" }).skill;
         })
-
 
         return ([...new Set(result.flat(10))].filter((obj) => obj).sort());
     };
@@ -580,8 +582,10 @@ class Selection extends React.Component {
                 {
                     Object.keys(options).map((v) => {
                         var val = parentkey + "." + v;
-                        return <span style={{ margin: '0em' }}>
-                            <input id={val} type="radio" name={parentkey}></input>{options[v].title}</span>;
+                        return <span  style={{ margin: '0em', display:"inline-block" }}>
+                            <input id={val} 
+                            defaultValue={this.props.default}
+                    type="radio" name={parentkey}></input> {options[v].title}</span>;
                     })
                 }
             </form>
