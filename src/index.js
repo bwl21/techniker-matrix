@@ -101,7 +101,7 @@ const DB = {
                 livestream: {
                     id: "livesteam",
                     title: "Übertragung nach Twitch Livestream auf BG-Homepage",
-                    skill: ["uebetragung-livestream-einschalten"],
+                    skill: ["uebertragung-livestream-einschalten"],
                 },
                 intern: {
                     id: "intern",
@@ -132,9 +132,13 @@ const DB = {
                 },
                 multi_kamera: {
                     id: "multi_kamera",
+                    title: "mehrere Kameras",
+                    skill: ["frontkamera-einschalten", "vmix-bedienen"],
+                },
+                multi_kamera_ppt: {
+                    id: "multi_kamera_ppt",
                     title: "mehrere Kameras + ppt",
                     skill: ["frontkamera-einschalten", "vmix-bedienen", "propresenter-bedienen"],
-
                 },
                 vorproduziert: {
                     id: "vorproduziert",
@@ -160,12 +164,12 @@ const DB = {
                 nur_zoom: {
                     id: "nur_zoom",
                     title: "Veranstaltung nur in Zoom",
-                    skill: ["uebertragung-zoom-einschalten", "zoomraum-einschalten"]
+                    skill: ["uebertragung-zoom-einschalten", "zoomraum-einrichten"]
                 },
                 zoom_danach: {
                     id: "zoom_danach",
                     title: "Nachveranstaltung in zoom",
-                    skill: ["zoomraum-einscahlten"]
+                    skill: ["zoomraum-einrichten"]
                 }
             }
         },
@@ -239,12 +243,12 @@ const DB = {
                 ein: {
                     id: "ein",
                     title: "Ein Programmbeitrag remote",
-                    skill: ["zoom-in-üertragung-einsteuern"]
+                    skill: ["zoom-in-üertragung-einsteuern", "zoomraum-einrichten"]
                 },
                 mehr: {
                     id: "mehr",
                     title: "mehrere Programmbeiträger remote",
-                    skill: ["zoom-in-üertragung-einsteuern"]
+                    skill: ["zoom-in-üertragung-einsteuern", "zoomraum-einrichten", "zoomraum-moderieren"]
                 }
             }
         }
@@ -270,11 +274,11 @@ const DB = {
                 // "uebertragung-einschalten",     
                 // "uebertragung-intern-einschalten",
                 // "uebertragung-zoom-einschalten",  
-                // "uebetragung-livestream-einschalten",
+                // "uebertragung-livestream-einschalten",
                 // "vmix-bedienen",
                 // "zoom-in-üertragung-einsteuern",
                 // "zoomraum-einrichten",
-                // "zoomraum-einscahlten",
+                // "zoomraum-einrichten",
 
                 "ton-grund-einstellen",
 
@@ -300,17 +304,17 @@ const DB = {
                 "uebertragung-einschalten",  //
                 "uebertragung-intern-einschalten",  //
                 // "uebertragung-zoom-einschalten",
-                "uebetragung-livestream-einschalten",  //
+                "uebertragung-livestream-einschalten",  //
                 // "vmix-bedienen",
                 // "zoom-in-üertragung-einsteuern",
                 // "zoomraum-einrichten",
-                // "zoomraum-einscahlten",
+                // "zoomraum-einrichten",
 
                 "ton-grund-einstellen"
             ]
         },
         {
-            id: "Tontechnker",
+            id: "Tontechniker",
             skill: [
                 // "beamer-einschalten",
                 // "frontkamera-einschalten",
@@ -329,11 +333,11 @@ const DB = {
                 // "uebertragung-einschalten",
                 // "uebertragung-intern-einschalten",
                 // "uebertragung-zoom-einschalten",
-                // "uebetragung-livestream-einschalten",
+                // "uebertragung-livestream-einschalten",
                 // "vmix-bedienen",
                 // "zoom-in-üertragung-einsteuern",
                 // "zoomraum-einrichten",
-                // "zoomraum-einscahlten",
+                // "zoomraum-einrichten",
 
                 "ton-grund-einstellen",
                 "ton-abmischen", //
@@ -342,7 +346,7 @@ const DB = {
             ]
         },
         {
-            id: "kameratechniker",
+            id: "Kameratechniker",
             skill: [
                 "beamer-einschalten", //
                 // "frontkamera-einschalten",
@@ -365,7 +369,7 @@ const DB = {
                 "vmix-bedienen",  //
                 "zoom-in-üertragung-einsteuern",  //
                 // "zoomraum-einrichten",
-                // "zoomraum-einschalten",
+                // "zoomraum-einrichten",
             ]
         },
         {
@@ -388,11 +392,11 @@ const DB = {
                 // "uebertragung-einschalten",
                 // "uebertragung-intern-einschalten",
                 // "uebertragung-zoom-einschalten",
-                // "uebetragung-livestream-einschalten",
+                // "uebertragung-livestream-einschalten",
                 // "vmix-bedienen",
                 // "zoom-in-üertragung-einsteuern",
                 // "zoomraum-einrichten",
-                // "zoomraum-einscahlten",
+                // "zoomraum-einrichten",
             ]
         },
         {
@@ -415,11 +419,12 @@ const DB = {
                 // "uebertragung-einschalten",
                 // "uebertragung-intern-einschalten",
                 // "uebertragung-zoom-einschalten",
-                // "uebetragung-livestream-einschalten",
+                // "uebertragung-livestream-einschalten",
                 // "vmix-bedienen",
                 // "zoom-in-üertragung-einsteuern",
                 "zoomraum-einrichten", //
-                "zoomraum-einscahlten", //
+                "zoomraum-moderieren", //
+
             ]
         },
         {
@@ -442,11 +447,11 @@ const DB = {
                 // "uebertragung-einschalten",
                 // "uebertragung-intern-einschalten",
                 // "uebertragung-zoom-einschalten",
-                // "uebetragung-livestream-einschalten",
+                // "uebertragung-livestream-einschalten",
                 // "vmix-bedienen",
                 // "zoom-in-üertragung-einsteuern",
                 // "zoomraum-einrichten",
-                // "zoomraum-einschalten",
+                // "zoomraum-einrichten",
             ]
         },
         {
@@ -473,22 +478,24 @@ class Techniker extends React.Component {
 
     render() {
         return <div>
-            <table border="1" vlign="top">
+            <table border="1" vlign="top" width="100%">
                 <tr valign="too">
-                    <td valign="top">
-                        <p>
+                    <td valign="top" width="30%">
+                        <ul>
                             {
                                 Object.keys(DB.bereich).map((key) => {
                                     const options = DB.bereich[key];
-                                    return <Selection
-                                        label={key}
-                                        options={options}
-                                        onChange={(v) => this.setSelection(key, v)}
-                                        default={this.props.defaults[key] ||
-                                            [options.id, Object.keys(options.fragen)[0]].join(".")} />;
+                                    return <li><p>
+                                        <DropSelection
+                                            label={key}
+                                            options={options}
+                                            onChange={(v) => this.setSelection(key, v)}
+                                            default={this.props.defaults[key] ||
+                                                [options.id, Object.keys(options.fragen)[0]].join(".")} />
+                                    </p></li>;
                                 })
                             }
-                        </p>
+                        </ul>
                     </td>
                     <td valign="top">
                         <Evaluator result={{ choices: this.state.choices }} />
@@ -551,7 +558,7 @@ const Evaluator = (props) => {
             result.push(pt);
         }
         else if ((pt.match.length === 0) && (pt.missing.length > 0)) {
-            result.push({ foo: "fail",  match:pt.missing, techn: {id: "offen"}, missing: pt.missing })
+            result.push({ foo: "fail", match: pt.missing, techn: { id: "offen" }, missing: pt.missing })
         }
         else if ((pt.match.length === 0) || (pt.missing.length === 0)) {
             // this should never haüü
@@ -586,11 +593,11 @@ const Evaluator = (props) => {
 
     const raw = "" //<pre>{JSON.stringify(result, null, 2)}</pre> ;  
     return <div>
-        {[nicer,raw]}
+        {[nicer, raw]}
     </div>;
 };
 
-class Selection extends React.Component {
+class DropSelection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -615,6 +622,36 @@ class Selection extends React.Component {
 
 }
 
+class Selection extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    componentDidMount() {
+        this.props.onChange(this.props.default);
+    }
+
+    render() {
+        const options = this.props.options.fragen;
+        const parentkey = this.props.options.id;
+
+        return <div>
+            <span>{this.props.options.title}: </span>
+            <form type="radio" name={parentkey} onChange={(evt) => { this.props.onChange(evt.target.id) }} defaultValue={this.props.default}>
+                {
+                    Object.keys(options).map((v) => {
+                        var val = parentkey + "." + v;
+                        return <span style={{ margin: '0em' }}>
+                            <input id={val} type="radio" name={parentkey}></input>{options[v].title}</span>;
+                    })
+                }
+            </form>
+        </div>;
+    }
+
+}
+
 // ========================================
 
 const schema = {
@@ -631,7 +668,7 @@ const log = (type) => console.log.bind(console, type);
 
 ReactDOM.render(
     <div>
-        <h1>das ist die Überschriftss</h1>
+        <h1>Techniker-Matrix Brüdergemeinde-Korntal</h1>
         <Techniker defaults={{}} />
     </div>,
     document.getElementById('root')
