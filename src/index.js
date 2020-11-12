@@ -55,7 +55,7 @@ const DB = {
             }
         },
         teilnemer_uebertragung: {
-            title: "Wie vile Teilnehmer sind in der Übertragung?",
+            title: "Wie viele Teilnehmer sind in der Übertragung?",
             id: 'teilnehmer_uebertragung',
             fragen: {
                 none: {
@@ -82,7 +82,7 @@ const DB = {
         },
 		*/
         uebertragung_intern: {
-            title: "Wie viele Räume sollen bespielt werden? (GZ/AZK)",
+            title: "Wie viele Räume sollen bespielt werden (GZ/AZK)",
             id: 'anzahl_raeume',
             fragen: {
                 none: {
@@ -92,8 +92,8 @@ const DB = {
                 },
 
                 kein: {
-                    id: 'kein',
-                    title: "kein",
+                    id: 'keiner',
+                    title: "keiner",
                 },
                 einer: {
                     id: 'einer',
@@ -122,13 +122,13 @@ const DB = {
                 },
                 livestream: {
                     id: "livesteam Twitch",
-                    title: "Übertragung nach Twitch Livestream auf BG-Homepage",
+                    title: "Livestream auf BG-Homepage",
                     skill: ["uebertragung-livestream-einschalten"],
                 }
             }
         },
         uebertragungsumfang: {
-            title: "in welchem Umfang soll übertragen werden",
+            title: "In welchem Umfang soll übertragen werden",
             id: 'uebertragungsumfang',
             fragen: {
                 none: {
@@ -155,12 +155,12 @@ const DB = {
                 multi_kamera: {
                     id: "multi_kamera",
                     title: "mehrere Kameras",
-                    skill: ["frontkamera-einschalten", "vmix-bedienen"],
+                    skill: ["kameras-bedienen", "vmix-bedienen"],
                 },
                 multi_kamera_ppt: {
                     id: "multi_kamera_ppt",
                     title: "mehrere Kameras + ppt",
-                    skill: ["frontkamera-einschalten", "vmix-bedienen", "propresenter-bedienen"],
+                    skill: ["kameras-bedienen", "vmix-bedienen", "propresenter-bedienen"],
                 },
                 vorproduziert: {
                     // vorproduziert kann nur über vmix abgespielt werden
@@ -187,16 +187,16 @@ const DB = {
                 livestream_in_zoom: {
                     id: "livestream_in_zoom",
                     title: "Livestream zusätzlich in Zoom",
-                    skill: ["uebertragung-zoom-einschalten", "uebertragung-livestream-einschalten", "zoomraum-einrichten"]
+                    skill: ["uebertragung-zoom-livestream-einschalten-einrichten"]
                 },
                 nur_zoom_aus_grosser_saal: {
                     id: "nur_zoom_aus_grosser_saal",
                     title: "Veranstaltung Aus großer Saal nur in Zoom",
-                    skill: ["uebertragung-zoom-einschalten", "zoomraum-einrichten"]
+                    skill: ["uebertragung-zoom-gs-einschalten-einrichten"]
                 },
                 nur_zoom_irgenwo: {
-                    id: "nur_zoom_von irgendwo",
-                    title: "Veranstaltung nur in Zoom",
+                    id: "nur_zoom_von_irgendwo",
+                    title: "Veranstaltung nur über Zoom",
                     skill: ["zoomraum-einrichten", "zoom-moderieren"]
                 },
                 zoom_danach: {
@@ -227,7 +227,7 @@ const DB = {
             }
         },
         ton: {
-            title: "welche Ton-Anforderungen",
+            title: "Welche Ton-Anforderungen haben Sie",
             id: "ton",
             fragen: {
                 none: {
@@ -236,7 +236,7 @@ const DB = {
                     skill: ["bitte-waehlen"]
                 },
                 basis: {
-                    title: ("Grundanforderung (max vier Rednermikrofone)"),
+                    title: ("Minimale (max vier Rednermikrofone)"),
                     id: "basis",
                     skill: ["ton-grund-einstellen"]
                 },
@@ -266,23 +266,23 @@ const DB = {
                 weiss: {
                     id: "weiss",
                     title: "Sendebeleuchtung weiß",
-                    skill: ["sendebeleuchtung-einschalten", ]
+                    skill: ["sendebeleuchtung-weiss-einschalten", "bt-sendebeleuchtung", ]
                 },
                 deko: {
                     id: "deko",
                     title: "Sendebeleuchtung dekoration",
-                    skill: ["sendebeleuchtung-einschalten"]
+                    skill: ["sendebeleuchtung-deko-einschalten"]
                 },
                 variabel: {
                     id: "variabel",
                     title: "variable beletuchtung (Fokus, Band, Redner)",
-                    skill: ["sendebeleuchtung-einschalten", "sendebeleuchtung-steuern"]
+                    skill: ["sendebeleuchtung-steuern",]
                 }
             }
         },
-        remote_beitraege: {
+        programm_beitraege: {
             title: "Welche Programmbeiträge kommen",
-            id: 'remote_beitraege',
+            id: 'programm_beitraege',
             fragen: {
                 none: {
                     id: "none",
@@ -291,17 +291,22 @@ const DB = {
                 },
                 kein: {
                     id: "kein",
-                    title: "Programmbeiträge nur vor Ort"
+                    title: "Programmbeiträge in Person nur vor Ort"
                 },
+                einspieler: {
+                    id: "einspieler",
+                    title: "Video beitrag",
+                    skill: ["programm-einspieler-bedienen",]
+                }
                 ein: {
                     id: "ein",
-                    title: "Ein Programmbeitrag remote",
-                    skill: ["zoom-in-üertragung-einsteuern", "zoomraum-einrichten"]
+                    title: "Ein remote Programmbeitrag",
+                    skill: ["vmix-call-einrichten",]
                 },
                 mehr: {
                     id: "mehr",
-                    title: "mehrere Programmbeiträger remote",
-                    skill: ["zoom-in-üertragung-einsteuern", "zoomraum-einrichten", "zoomraum-moderieren"]
+                    title: "mehrere remote Programmbeiträger",
+                    skill: ["zoom-in-übertragung-einbetten", "zoomraum-einrichten", "zoomraum-moderieren"]
                 }
             }
         }
@@ -310,202 +315,82 @@ const DB = {
         {
             id: "Basistechniker 1",
             skill: [
-                "beamer-einschalten",           //
-                // "frontkamera-einschalten",
-                // "gebetsanliegen-aufnehmen",
-                // "livestream-einbetten",
-                // "livestream-einschalten",
-                // "propresenter-bedienen",
-                "raumlicht-einschalten",        //
-                // "sendebeleuchtung-einschalten", 
-                // "sendebeleuchtung-steuern",
-                "songbeamer-bedienen",          //
-                "technik-einschalten",          //
-                //  "technik-grosser-saal-einschalten",  //
-                //  "technik-grosses-forum-einschalten",
-                //  "technik-open-air-aufbauen",    //. open air techner
-                // "uebertragung-einschalten",     
-                // "uebertragung-intern-einschalten",
-                // "uebertragung-zoom-einschalten",  
-                // "uebertragung-livestream-einschalten",
-                // "vmix-bedienen",
-                // "zoom-in-üertragung-einsteuern",
-                // "zoomraum-einrichten",
-                // "zoomraum-einrichten",
-
-                "ton-grund-einstellen",
-
+               "ton-grund-einstellen",
+                "songbeamer-bedienen",
+                "raumlicht-einschalten",
+                "beamer-einschalten",
+                "technik-einschalten",
             ]
         },
         {
             id: "Basistechniker 2",
             skill: [
-                "beamer-einschalten",   //
-                "frontkamera-einschalten",  //
-                // "gebetsanliegen-aufnehmen",
-                // "livestream-einbetten",
-                "livestream-einschalten",  //. ---- duplikate
-                // "propresenter-bedienen",
-                "raumlicht-einschalten", //
-                "sendebeleuchtung-einschalten",  //
-                // "sendebeleuchtung-steuern",
-                "songbeamer-bedienen",  //
-                "technik-einschalten",   //
-                // "technik-grosser-saal-einschalten",
-                // "technik-grosses-forum-einschalten",
-                // "technik-open-air-aufbauen",
-                "uebertragung-einschalten",  //
-                "uebertragung-intern-einschalten",  //
-                // "uebertragung-zoom-einschalten",
-                "uebertragung-livestream-einschalten",  //
-                // "vmix-bedienen",
-                // "zoom-in-üertragung-einsteuern",
-                // "zoomraum-einrichten",
-                // "zoomraum-einrichten",
-
-                "ton-grund-einstellen"
+                "ton-grund-einstellen",
+                "songbeamer-bedienen",
+                "beamer-einschalten",
+                "technik-einschalten",
+                "frontkamera-einschalten",
+                "raumlicht-einschalten",
+                "bt-sendebeleuchtung",
+                "programm-einspieler-bedienen",
+                "uebertragung-intern-einschalten",
+                "uebertragung-livestream-einschalten",
             ]
         },
         {
             id: "Tontechniker",
             skill: [
-                // "beamer-einschalten",
-                // "frontkamera-einschalten",
-                // "gebetsanliegen-aufnehmen",
-                // "livestream-einbetten",
-                // "livestream-einschalten",
-                // "propresenter-bedienen",
+                "ton-abmischen",
+                "tontechnik-aufbauen",
+                "technik-einschalten",
                 "raumlicht-einschalten",
-                // "sendebeleuchtung-einschalten",
-                // "sendebeleuchtung-steuern",
-                // "songbeamer-bedienen",
-                "technik-einschalten",  //
-                // "technik-grosser-saal-einschalten",
-                // "technik-grosses-forum-einschalten",
-                // "technik-open-air-aufbauen",
-                // "uebertragung-einschalten",
-                // "uebertragung-intern-einschalten",
-                // "uebertragung-zoom-einschalten",
-                // "uebertragung-livestream-einschalten",
-                // "vmix-bedienen",
-                // "zoom-in-üertragung-einsteuern",
-                // "zoomraum-einrichten",
-                // "zoomraum-einrichten",
-
-                "ton-grund-einstellen",
-                "ton-abmischen", //
-                "tontechnik-aufbauen" //
-
             ]
         },
         {
             id: "Kameratechniker",
             skill: [
-                "beamer-einschalten", //
-                "frontkamera-einschalten",
-                // "gebetsanliegen-aufnehmen",
-                // "livestream-einbetten",
-                // "livestream-einschalten",
-                // "propresenter-bedienen",
-                "raumlicht einschalten",   //
-                "sendebeleuchtung-einschalten",  //
-                "sendebeleuchtung-steuern",    //
-                // "songbeamer-bedienen",
-                "technik-einschalten",  //
-                // "technik-grosser-saal-einschalten",
-                // "technik-grosses-forum-einschalten",
-                // "technik-open-air-aufbauen",
-                // "uebertragung-einschalten", //
-                "uebertragung-intern-einschalten", //
-                "uebertragung-zoom-einschalten",   //
-                "uebertragung-livestream-einschalten",  //
-                "vmix-bedienen",  //
-                "zoom-in-üertragung-einsteuern",  //
-                // "zoomraum-einrichten",
-                // "zoomraum-einrichten",
+                "kameras-bedienen",
+                "vmix-bedienen",
+                "uebertragung-intern-einschalten",
+                "uebertragung-livestream-einschalten",
+                "uebertragung-zoom-livestream-einschalten-einrichten",
+                "uebertragung-zoom-gs-einschalten-einrichten",
+                "sendebeleuchtung-weiss-einschalten",
+                "sendebeleuchtung-deko-einschalten",
+                "sendebeleuchtung-steuern",
+                "vmix-call-einrichten",
+                "zoom-in-übertragung-einbetten",
+                "technik-einschalten",
+                "raumlicht-einschalten",
             ]
         },
         {
             id: "Präsentationstechniker",
             skill: [
-                "beamer-einschalten", //
-                // "frontkamera-einschalten",
-                // "gebetsanliegen-aufnehmen",
-                // "livestream-einbetten",
-                // "livestream-einschalten",
-                "propresenter-bedienen", //
-                // "raumlicht einschalten",
-                // "sendebeleuchtung-einschalten",  
-                // "sendebeleuchtung-steuern",
                 "beamer-einschalten",
-                "songbeamer-bedienen", //
-                "technik-einschalten",  //
-                // "technik-grosser-saal-einschalten",
-                // "technik-grosses-forum-einschalten",
-                // "technik-open-air-aufbauen",
-                // "uebertragung-einschalten",
-                // "uebertragung-intern-einschalten",
-                // "uebertragung-zoom-einschalten",
-                // "uebertragung-livestream-einschalten",
-                // "vmix-bedienen",
-                // "zoom-in-üertragung-einsteuern",
-                // "zoomraum-einrichten",
-                // "zoomraum-einrichten",
+                "propresenter-bedienen",
+                "programm-einspieler-bedienen",
+                "technik-einschalten",
+                "raumlicht-einschalten",
             ]
         },
         {
             id: "zoommoderator",
             skill: [
-                // "beamer-einschalten",
-                // "frontkamera-einschalten",
-                // "gebetsanliegen-aufnehmen",
-                // "livestream-einbetten",
-                // "livestream-einschalten",
-                // "propresenter-bedienen",
-                // "raumlicht einschalten",
-                // "sendebeleuchtung-einschalten",
-                // "sendebeleuchtung-steuern",
-                // "songbeamer-bedienen",
-                // "technik-einschalten",
-                // "technik-grosser-saal-einschalten",
-                // "technik-grosses-forum-einschalten",
-                // "technik-open-air-aufbauen",
-                // "uebertragung-einschalten",
-                // "uebertragung-intern-einschalten",
-                // "uebertragung-zoom-einschalten",
-                // "uebertragung-livestream-einschalten",
-                // "vmix-bedienen",
-                // "zoom-in-üertragung-einsteuern",
-                "zoomraum-einrichten", //
-                "zoomraum-moderieren", //
-
+                "zoomraum-einrichten",
+                "zoom-moderieren",
             ]
         },
         {
             id: "webredakteur",
             skill: [
-                // "beamer-einschalten",
-                // "frontkamera-einschalten",
-                // "gebetsanliegen-aufnehmen",
-                "livestream-einbetten",  //
-                // "livestream-einschalten",
-                // "propresenter-bedienen",
-                // "raumlicht einschalten",
-                // "sendebeleuchtung-einschalten",
-                // "sendebeleuchtung-steuern",
-                // "songbeamer-bedienen",
-                // "technik-einschalten",
-                // "technik-grosser-saal-einschalten",
-                // "technik-grosses-forum-einschalten",
-                // "technik-open-air-aufbauen",
-                // "uebertragung-einschalten",
-                // "uebertragung-intern-einschalten",
-                // "uebertragung-zoom-einschalten",
-                // "uebertragung-livestream-einschalten",
-                // "vmix-bedienen",
-                // "zoom-in-üertragung-einsteuern",
-                // "zoomraum-einrichten",
-                // "zoomraum-einrichten",
+                 "livestream-einbetten",
+            ]
+        },
+        {
+            id: "Gebetsmanager", //habe leider noch keinen besseren Namen
+            skill: [
+                 "gebetsanliegen-aufnehmen",
             ]
         },
         {
