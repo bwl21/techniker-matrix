@@ -6,9 +6,14 @@ import './index.css';
 const DB = {
     bereich: {
         ort: {
-            title: "fragen zu Ort der Veranstaltung",
+            title: "Ort der Veranstaltung",
             id: 'ort',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 gr_forum: {
                     id: 'gr_forum',
                     title: "Großes Forum",
@@ -30,6 +35,11 @@ const DB = {
             title: "Wie viele Teilnehmer werden erwartet",
             id: 'telnehmer_prasesenz',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 gt_0: {
                     id: 'gt_0',
                     title: "über 0",
@@ -45,9 +55,13 @@ const DB = {
             title: "Wie vile Teilnehmer sind in der Übertragung",
             id: 'teilnehmer_uebertragung',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 gt_200: {
                     id: 'gt_200', title: "über 200",
-                    skill: ["technik-einschalten", "raumlicht-einschalten"],
                 },
                 gt_100: {
                     id: 'gt_100',
@@ -63,50 +77,49 @@ const DB = {
                 }
             }
         },
-        anzahl_beamer: {
+        uebertraung_intern: {
             title: "Wie viele Beamer sollen bespielt werden",
-            id: 'anzahl_beamer',
+            id: 'anzahl_raeume',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
 
                 kein: {
                     id: 'kein',
                     title: "kein",
-
                 },
                 ein: {
                     id: 'ein',
-                    title: "ein Beamer",
+                    title: "ein Raum",
                     skill: ["beamer-einschalten"],
                 },
                 mehr: {
                     id: 'mehr',
-                    title: "mehrere Beamer",
-                    skill: ["beamer-einschalten", "uebertragung-einschalten"]
+                    title: "mehrere Räume",
+                    skill: ["beamer-einschalten", "uebertragung-intern-einschalten"]
                 }
             }
         },
-        uebertragungsziel: {
-            title: "Wohin soll übertragen werden",
-            id: 'uebertragungsziel',
+        livestream: {
+            title: "Soll ein Livestream geboten werden",
+            id: 'livestream',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 kein: {
                     id: 'kein',
-                    title: "keine Übertragung"
-                },
-                zoom: {
-                    id: "zoom",
-                    title: "Übertragung nach Zoom",
-                    skill: ["uebertragung-zoom-einschalten"],
+                    title: "keine Livestream"
                 },
                 livestream: {
-                    id: "livesteam",
+                    id: "livesteam Twitch",
                     title: "Übertragung nach Twitch Livestream auf BG-Homepage",
                     skill: ["uebertragung-livestream-einschalten"],
-                },
-                intern: {
-                    id: "intern",
-                    title: "Übertragung intern (GZ, AZK)",
-                    skill: ["uebertragung-intern-einschalten"],
                 }
             }
         },
@@ -114,6 +127,11 @@ const DB = {
             title: "in welchem Umfang soll übertragen werden",
             id: 'uebertragungsumfang',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 kein: {
                     id: "kein",
                     title: "keine Übetragung"
@@ -141,17 +159,23 @@ const DB = {
                     skill: ["frontkamera-einschalten", "vmix-bedienen", "propresenter-bedienen"],
                 },
                 vorproduziert: {
+                    // vorproduziert kann nur über vmix abgespielt werden
+                    // indem Szenario ist nur das vmix zu bedienen
                     id: "vorproduziert",
                     title: "vorproduzierte Aufnahme",
-                    skill: ["songbeamer-bedienen"],
-
+                    skill: ["vmix-bedienen"],
                 }
             }
         },
         zoom: {
-            title: "fragen zu Ort der Veranstaltung",
+            title: "Zoom-Einsatz",
             id: "zoom",
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 kein: {
                     id: "kein",
                     title: "kein Zoom"
@@ -159,17 +183,22 @@ const DB = {
                 livestream_in_zoom: {
                     id: "livestream_in_zoom",
                     title: "Livestream zusätzlich in Zoom",
-                    skill: ["uebertragung-zoom-einschalten", "livestream-einschalten", "zoomraum-einrichten"]
+                    skill: ["uebertragung-zoom-einschalten", "uebertragung-livestream-einschalten", "zoomraum-einrichten"]
                 },
-                nur_zoom: {
-                    id: "nur_zoom",
-                    title: "Veranstaltung nur in Zoom",
+                nur_zoom_aus_grosser_saal: {
+                    id: "nur_zoom_aus_grosser_saal",
+                    title: "Veranstaltung Aus großer Saal nur in Zoom",
                     skill: ["uebertragung-zoom-einschalten", "zoomraum-einrichten"]
+                },
+                nur_zoom_irgenwo: {
+                    id: "nur_zoom_von irgendwo",
+                    title: "Veranstaltung nur in Zoom",
+                    skill: ["zoomraum-einrichten", "zoom-moderieren"]
                 },
                 zoom_danach: {
                     id: "zoom_danach",
                     title: "Nachveranstaltung in zoom",
-                    skill: ["zoomraum-einrichten"]
+                    skill: ["zoomraum-einrichten", "zoom-moderieren"]
                 }
             }
         },
@@ -177,6 +206,11 @@ const DB = {
             title: "Wie sollen Rückmeldungen verarbeitet werden",
             id: 'feedback',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 kein: {
                     id: "kein",
                     title: "keine Rückmeldungen"
@@ -192,14 +226,19 @@ const DB = {
             title: "welche Ton-Anforderungen",
             id: "ton",
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 basis: {
-                    title: ("Grundanforderung (max vier mikrofone)"),
+                    title: ("Grundanforderung (max vier Rednermikrofone)"),
                     id: "basis",
                     skill: ["ton-grund-einstellen"]
                 },
                 komplex: {
-                    title: ("Komplexes Setup mit band etc."),
-                    id: "komplex",
+                    title: ("Erweitertes Setup mit Band etc."),
+                    id: "erweitert",
                     skill: ["ton-abmischen",
                         "tontechnik-aufbauen"]
                 }
@@ -209,6 +248,11 @@ const DB = {
             title: "Welche Licht-Anforderungen",
             id: 'licht',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 basis: {
                     id: "basis",
                     title: "Nur Raumlicht",
@@ -218,17 +262,17 @@ const DB = {
                 weiss: {
                     id: "weiss",
                     title: "Sendebeleuchtung weiß",
-                    skill: ["raumlicht-einschalten"]
+                    skill: ["sendebeleuchtung-einschalten", ]
                 },
                 deko: {
                     id: "deko",
                     title: "Sendebeleuchtung dekoration",
-                    skill: ["raumlicht-einschalten", "sendebeleuchtung-einschalten"]
+                    skill: ["sendebeleuchtung-einschalten"]
                 },
                 variabel: {
                     id: "variabel",
                     title: "variable beletuchtung (Fokus, Band, Redner)",
-                    skill: ["raumlicht-einschalten", "sendebeleuchtung-einschalten", "sendebeleuchtung-steuern"]
+                    skill: ["sendebeleuchtung-einschalten", "sendebeleuchtung-steuern"]
                 }
             }
         },
@@ -236,6 +280,11 @@ const DB = {
             title: "Welche Programmbeiträge kommen",
             id: 'remote_beitraege',
             fragen: {
+                none: {
+                    id: "none",
+                    title: "bitte wählen",
+                    skill: ["bitte-waehlen"]
+                },
                 kein: {
                     id: "kein",
                     title: "Programmbeiträge nur vor Ort"
@@ -349,7 +398,7 @@ const DB = {
             id: "Kameratechniker",
             skill: [
                 "beamer-einschalten", //
-                // "frontkamera-einschalten",
+                "frontkamera-einschalten",
                 // "gebetsanliegen-aufnehmen",
                 // "livestream-einbetten",
                 // "livestream-einschalten",
@@ -384,6 +433,7 @@ const DB = {
                 // "raumlicht einschalten",
                 // "sendebeleuchtung-einschalten",  
                 // "sendebeleuchtung-steuern",
+                "beamer-einschalten",
                 "songbeamer-bedienen", //
                 "technik-einschalten",  //
                 // "technik-grosser-saal-einschalten",
@@ -486,7 +536,7 @@ class Techniker extends React.Component {
                                 Object.keys(DB.bereich).map((key) => {
                                     const options = DB.bereich[key];
                                     return <li><p>
-                                        <DropSelection
+                                        <Selection
                                             label={key}
                                             options={options}
                                             onChange={(v) => this.setSelection(key, v)}
@@ -591,7 +641,7 @@ const Evaluator = (props) => {
             }
         </table>;
 
-    const raw = "" //<pre>{JSON.stringify(result, null, 2)}</pre> ;  
+    const raw = <pre>{JSON.stringify(result.choices, null, 2)}</pre>;
     return <div>
         {[nicer, raw]}
     </div>;
@@ -637,7 +687,7 @@ class Selection extends React.Component {
         const parentkey = this.props.options.id;
 
         return <div>
-            <span>{this.props.options.title}: </span>
+            <span>{this.props.options.title}:</span>
             <form type="radio" name={parentkey} onChange={(evt) => { this.props.onChange(evt.target.id) }} defaultValue={this.props.default}>
                 {
                     Object.keys(options).map((v) => {
