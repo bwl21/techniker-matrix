@@ -6,7 +6,7 @@ import './index.css';
 const DB = {
     bereich: {
         ort: {
-            title: "Ort der Veranstaltung?",
+            title: "Ort der Veranstaltung",
             id: 'ort',
             fragen: {
                 none: {
@@ -55,7 +55,7 @@ const DB = {
             }
         },
         teilnemer_uebertragung: {
-            title: "Wie viele Teilnehmer sind in der Übertragung?",
+            title: "Wie viele Teilnehmer sind in der Übertragung",
             id: 'teilnehmer_uebertragung',
             fragen: {
                 none: {
@@ -108,7 +108,7 @@ const DB = {
             }
         },
         livestream: {
-            title: "Soll ein Livestream angeboten werden?",
+            title: "Soll ein Livestream angeboten werden",
             id: 'livestream',
             fragen: {
                 none: {
@@ -236,15 +236,14 @@ const DB = {
                     skill: ["bitte-waehlen"]
                 },
                 basis: {
-                    title: ("Minimale (max vier Rednermikrofone)"),
+                    title: ("Minimale Aufstellung (max vier Rednermikrofone)"),
                     id: "basis",
                     skill: ["ton-grund-einstellen"]
                 },
                 komplex: {
-                    title: ("Erweitertes Setup mit Band etc."),
+                    title: ("Erweiterte Aufstellung mit Band etc."),
                     id: "erweitert",
-                    skill: ["ton-abmischen",
-                        "tontechnik-aufbauen"]
+                    skill: ["ton-abmischen", "tontechnik-aufbauen"]
                 }
             }
         },
@@ -266,7 +265,7 @@ const DB = {
                 weiss: {
                     id: "weiss",
                     title: "Sendebeleuchtung weiß",
-                    skill: ["sendebeleuchtung-weiss-einschalten", "bt-sendebeleuchtung", ]
+                    skill: ["sendebeleuchtung-weiss-einschalten", "bt-sendebeleuchtung",]
                 },
                 deko: {
                     id: "deko",
@@ -276,7 +275,7 @@ const DB = {
                 variabel: {
                     id: "variabel",
                     title: "variable beletuchtung (Fokus, Band, Redner)",
-                    skill: ["sendebeleuchtung-steuern",]
+                    skill: ["sendebeleuchtung-steuern"]
                 }
             }
         },
@@ -297,7 +296,7 @@ const DB = {
                     id: "einspieler",
                     title: "Video beitrag",
                     skill: ["programm-einspieler-bedienen",]
-                }
+                },
                 ein: {
                     id: "ein",
                     title: "Ein remote Programmbeitrag",
@@ -390,7 +389,7 @@ const DB = {
         {
             id: "Gebetsmanager", //habe leider noch keinen besseren Namen
             skill: [
-                 "gebetsanliegen-aufnehmen",
+                "gebetsanliegen-aufnehmen",
             ]
         },
         {
