@@ -6,7 +6,7 @@ import './index.css';
 const DB = {
     bereich: {
         ort: {
-            title: "Ort der Veranstaltung",
+            title: "Ort der Veranstaltung?",
             id: 'ort',
             fragen: {
                 none: {
@@ -31,9 +31,12 @@ const DB = {
                 }
             }
         },
+		/*
+		//kann doch eigentlich weg, da egal ob 0 oder mehr Technik immer eingeschaltet werden muss...
+		
         teilnemer_praesenz: {
-            title: "Wie viele Teilnehmer werden erwartet",
-            id: 'telnehmer_prasesenz',
+			title: "Wie viele Teilnehmer werden erwartet?",
+            id: 'teilnehmer_praesenz',
             fragen: {
                 none: {
                     id: "none",
@@ -52,7 +55,7 @@ const DB = {
             }
         },
         teilnemer_uebertragung: {
-            title: "Wie vile Teilnehmer sind in der Übertragung",
+            title: "Wie vile Teilnehmer sind in der Übertragung?",
             id: 'teilnehmer_uebertragung',
             fragen: {
                 none: {
@@ -77,8 +80,9 @@ const DB = {
                 }
             }
         },
-        uebertraung_intern: {
-            title: "Wie viele Beamer sollen bespielt werden",
+		*/
+        uebertragung_intern: {
+            title: "Wie viele Räume sollen bespielt werden? (GZ/AZK)",
             id: 'anzahl_raeume',
             fragen: {
                 none: {
@@ -91,8 +95,8 @@ const DB = {
                     id: 'kein',
                     title: "kein",
                 },
-                ein: {
-                    id: 'ein',
+                einer: {
+                    id: 'einer',
                     title: "ein Raum",
                     skill: ["beamer-einschalten"],
                 },
@@ -104,7 +108,7 @@ const DB = {
             }
         },
         livestream: {
-            title: "Soll ein Livestream geboten werden",
+            title: "Soll ein Livestream angeboten werden?",
             id: 'livestream',
             fragen: {
                 none: {
@@ -114,7 +118,7 @@ const DB = {
                 },
                 kein: {
                     id: 'kein',
-                    title: "keine Livestream"
+                    title: "kein Livestream"
                 },
                 livestream: {
                     id: "livesteam Twitch",
