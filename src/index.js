@@ -17,12 +17,12 @@ const DB = {
                 gr_forum: {
                     id: 'gr_forum',
                     title: "Großes Forum",
-                    skill: ["technik-einschalten", "raumlicht-einschalten"],
+                    skill: ["hausmeisterdienste", "technik-einschalten", "raumlicht-einschalten"],
                 },
                 gr_saal: {
                     id: 'gr_forum',
                     title: "Großer Saal",
-                    skill: ["technik-einschalten", "raumlicht-einschalten"],
+                    skill: ["mesner-dienste", "technik-einschalten", "raumlicht-einschalten"],
                 },
                 open_air: {
                     id: 'open_air',
@@ -31,7 +31,7 @@ const DB = {
                 }
             }
         },
-		/*
+
 		//kann doch eigentlich weg, da egal ob 0 oder mehr Technik immer eingeschaltet werden muss...
 		
         teilnemer_praesenz: {
@@ -43,10 +43,15 @@ const DB = {
                     title: "bitte wählen",
                     skill: ["bitte-waehlen"]
                 },
+                gt_100:{
+                    if: `gt_100`,
+                    title: "über 100",
+                    skill: ["lueftung-einschalten", "abluft-einschalten"]
+                },
                 gt_0: {
                     id: 'gt_0',
                     title: "über 0",
-                    skill: ["technik-einschalten", "raumlicht-einschalten"],
+                    skill: ["lueftung-einschalten"],
                 },
                 eq_0: {
                     id: 'eq_0',
@@ -54,6 +59,7 @@ const DB = {
                 }
             }
         },
+        /*
         teilnemer_uebertragung: {
             title: "Wie viele Teilnehmer sind in der Übertragung",
             id: 'teilnehmer_uebertragung',
