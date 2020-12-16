@@ -20,7 +20,7 @@ const DB = {
                     skill: ["hausmeisterdienste", "technik-einschalten", "raumlicht-einschalten"],
                 },
                 gr_saal: {
-                    id: 'gr_forum',
+                    id: 'gr_saal',
                     title: "Großer Saal",
                     skill: ["mesner-dienste", "technik-einschalten", "raumlicht-einschalten"],
                 },
@@ -320,7 +320,7 @@ const DB = {
         {
             id: "Basistechniker 1",
             skill: [
-               "ton-grund-einstellen",
+                "ton-grund-einstellen",
                 "songbeamer-bedienen",
                 "raumlicht-einschalten",
                 "beamer-einschalten",
@@ -413,6 +413,11 @@ const DB = {
     ]
 }
 
+class Manual extends React.Component {
+    render() {
+        return <h3>manual will show up here</h3>
+        }
+}
 
 class Techniker extends React.Component {
     constructor(props) {
@@ -426,7 +431,7 @@ class Techniker extends React.Component {
     render() {
         return <div>
             <table border="1" vlign="top" width="100%">
-                <tr valign="too">
+                <tr valign="top">
                     <td valign="top" width="30%">
                         <ul>
                             {
@@ -446,6 +451,7 @@ class Techniker extends React.Component {
                     </td>
                     <td valign="top">
                         <Evaluator result={{ choices: this.state.choices }} />
+                        <Manual />
                     </td>
                 </tr>
             </table>
